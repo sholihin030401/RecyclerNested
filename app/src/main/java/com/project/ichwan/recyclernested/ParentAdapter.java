@@ -15,7 +15,7 @@ import java.util.List;
 public class ParentAdapter extends RecyclerView.Adapter<ParentAdapter.HolderItem> {
 
     RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
-    List<Parents> parentsList = new ArrayList<>();
+    List<Parents> parentsList;
 
     public ParentAdapter(List<Parents> parentsList) {
         this.parentsList = parentsList;

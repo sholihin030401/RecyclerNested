@@ -27,8 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
         rvMain = findViewById(R.id.recycler_main);
         LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
-        ParentAdapter adapter = new ParentAdapter(ItemData());
+
         rvMain.setLayoutManager(layoutManager);
+        ParentAdapter adapter = new ParentAdapter(ItemData());
         rvMain.setAdapter(adapter);
 
         findViewById(R.id.fab_main).setOnClickListener(new View.OnClickListener() {
@@ -41,16 +42,20 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Parents> ItemData() {
         List<Parents> listParent = new ArrayList<>();
-        Parents parentsItem = new Parents(titles,SubitemData());
-        listParent.add(parentsItem);
+        for(int i = 0; i < listParent.size();i++){
+            Parents parentsItem = new Parents(titles+i,SubitemData());
+            listParent.add(parentsItem);
+        }
 
         return listParent;
     }
 
     private List<Childs> SubitemData() {
         List<Childs> listTitle = new ArrayList<>();
-        Childs childs = new Childs(subtitles);
-        listTitle.add(childs);
+        for (int i = 0; i < listTitle.size();i++){
+            Childs childs = new Childs(subtitles+i);
+            listTitle.add(childs);
+        }
 
         return listTitle;
     }

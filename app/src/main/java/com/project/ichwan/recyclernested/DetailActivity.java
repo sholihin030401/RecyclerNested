@@ -54,6 +54,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
             View listview = layoutRow.getChildAt(i);
             EditText items = listview.findViewById(R.id.edt_item);
+            txsubname = items.getText().toString();
 
             Childs childs = new Childs();
 
