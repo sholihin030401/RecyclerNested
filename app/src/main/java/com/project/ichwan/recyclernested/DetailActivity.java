@@ -16,8 +16,8 @@ import java.util.List;
 public class DetailActivity extends AppCompatActivity implements View.OnClickListener {
 
     LinearLayout layoutRow;
-    List<Childs> titleList = new ArrayList<>();
-    String txname, txsubname;
+    ArrayList<Childs> titleList = new ArrayList<>();
+    String txname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +40,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 if(checkValidate()){
                     Intent intent = new Intent(this, MainActivity.class);
                     intent.putExtra("name",txname);
-                    intent.putExtra("subname",txsubname);
+                    intent.putParcelableArrayListExtra("list",titleList);
                     startActivity(intent);
                 }
         }
@@ -54,7 +54,6 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
             View listview = layoutRow.getChildAt(i);
             EditText items = listview.findViewById(R.id.edt_item);
-            txsubname = items.getText().toString();
 
             Childs childs = new Childs();
 

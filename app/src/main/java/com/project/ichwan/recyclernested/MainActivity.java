@@ -14,16 +14,16 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView rvMain;
-    String titles, subtitles;
+    String titles;
+    ArrayList<Childs> listchilds = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //java.lang.NoSuchMethodException: checkPermissionWithSpecialUid [class java.lang.String]
         Intent getdata = getIntent();
         titles = getdata.getStringExtra("name");
-        subtitles = getdata.getStringExtra("subname");
+        listchilds = getdata.getParcelableArrayListExtra("list");
 
         rvMain = findViewById(R.id.recycler_main);
         LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
@@ -42,21 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Parents> ItemData() {
         List<Parents> listParent = new ArrayList<>();
-        for(int i = 0; i < listParent.size();i++){
-            Parents parentsItem = new Parents(titles+i,SubitemData());
-            listParent.add(parentsItem);
-        }
+        Parents parentsItem = new Parents(titles,listchilds);
+        listParent.add(parentsItem);
 
         return listParent;
-    }
-
-    private List<Childs> SubitemData() {
-        List<Childs> listTitle = new ArrayList<>();
-        for (int i = 0; i < listTitle.size();i++){
-            Childs childs = new Childs(subtitles+i);
-            listTitle.add(childs);
-        }
-
-        return listTitle;
     }
 }

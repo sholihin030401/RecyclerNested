@@ -36,8 +36,8 @@ public class ParentAdapter extends RecyclerView.Adapter<ParentAdapter.HolderItem
         Parents parents = parentsList.get(position);
 
         LinearLayoutManager manager = new LinearLayoutManager(holder.rvsubmain.getContext(),LinearLayoutManager.VERTICAL,false);
-        manager.setInitialPrefetchItemCount(parents.getChildsList().size());
-        ChildItemAdapter adapter = new ChildItemAdapter(parents.getChildsList());
+        manager.setInitialPrefetchItemCount(parents.getListChild().size());
+        ChildItemAdapter adapter = new ChildItemAdapter(parents.getListChild());
         holder.rvsubmain.setLayoutManager(manager);
         holder.rvsubmain.setAdapter(adapter);
         holder.rvsubmain.setRecycledViewPool(viewPool);

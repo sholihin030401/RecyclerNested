@@ -9,13 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ChildItemAdapter extends RecyclerView.Adapter<ChildItemAdapter.HolderSubitem> {
 
-    List<Childs> list = new ArrayList<>();
+    ArrayList<Childs> list;
 
-    public ChildItemAdapter(List<Childs> list) {
+    public ChildItemAdapter(ArrayList<Childs> list) {
         this.list = list;
     }
 
@@ -34,6 +33,7 @@ public class ChildItemAdapter extends RecyclerView.Adapter<ChildItemAdapter.Hold
 
     @Override
     public int getItemCount() {
+        //java.lang.NullPointerException: Attempt to invoke virtual method 'int java.util.ArrayList.size()' on a null object reference
         return list.size();
     }
 

@@ -1,19 +1,16 @@
 package com.project.ichwan.recyclernested;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Parents {
 
     private String txtitle;
-    private List<Childs> childsList;
+    private ArrayList<Childs> listChild;
 
-    public Parents(String txtitle, List<Childs> childsList) {
+    public Parents(String txtitle, ArrayList<Childs> listChild) {
         this.txtitle = txtitle;
-        this.childsList = childsList;
-    }
-
-    public Parents() {
-
+        this.listChild = listChild;
     }
 
     public String getTxtitle() {
@@ -24,11 +21,11 @@ public class Parents {
         this.txtitle = txtitle;
     }
 
-    public List<Childs> getChildsList() {
-        return childsList;
+    public ArrayList<Childs> getListChild() {
+        return listChild;
     }
 
-    public void setChildsList(List<Childs> childsList) {
-        this.childsList = childsList;
+    public void setListChild(ArrayList<Childs> listChild) {
+        this.listChild = listChild;
     }
 }
